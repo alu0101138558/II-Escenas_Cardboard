@@ -24,9 +24,9 @@ Produciendo en el juego lo siguiente:
 
 Lo primero que hice fue crear un texto dentro del *canvas*, éste lo situé en la esquina superior izquierda. Para que su contenido fuese actualizado, desarrollé un script denominado **cubesCatch**.
 
-Al igual que con las esferas, tambien cree un material y, posteriormente un *prefab* del objeto **Cube**.
+Al igual que con las esferas, cree un material y, posteriormente un *prefab* del objeto **Cube**.
 
-Para conseguir que estos fuesen eliminados al presionarlos, primero  desarrollé un pequeño script donde establecí la función *destroyCube*, esta encargandose de suprimir los cubos de la escena y, posteriormente, añadí al *prefab* la propiedad *Event Trigger*. Con la opción *Pointer Click* de esta última, hice que al ser presionado un objeto de este tipo, fuese eliminado. Quedando de la siguiente manera: 
+Para conseguir que estos fuesen eliminados al presionarlos, primero generé un pequeño script donde establecí la función *destroyCube*, esta encargandose de suprimir los cubos de la escena y, posteriormente, añadí al *prefab* la propiedad *Event Trigger*. Con la opción *Pointer Click* de esta última, hice que al ser presionado un objeto de este tipo, fuese eliminado. Quedando de la siguiente manera: 
 
 ![destroy.jpg](Images/4.jpg)
 
