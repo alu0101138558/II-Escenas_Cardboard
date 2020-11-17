@@ -8,7 +8,7 @@ Para resolver este apartado, lo primero que realicé fue la creación de un mate
 
 ![material.jpg](Images/1.jpg)
 
-Lo siguiente, fue la creación de objeto **Shepere**, asignandole el material anteriormente establecido, y su conversión a prefab, permitiendome así reciclarlo para el resto de objetos del mismo tipo. Además, le asigné un pequeño script que permite cambiar el color de estos objetos, denominado **changeColour**.
+Lo siguiente, fue la creación de objeto **Shepere**, asignandole el material anteriormente establecido, y su conversión a *prefab*, permitiendome así reciclarlo para el resto de objetos del mismo tipo. Además, le asigné un pequeño script que permite cambiar el color de estos objetos, denominado **changeColour**.
 
 Luego, cree dentro de la cámara un *canvas* para poder responder al apartado de la UI. Dentro de éste, establecí tres botones, cada uno siendo correspondiente a un color primario (rojo, verde y azúl).
 
@@ -22,4 +22,16 @@ Produciendo en el juego lo siguiente:
 
 ### 2. El jugador podrá recolectar cubos.
 
-Para
+Lo primero que hice fue crear un texto dentro del *canvas*, éste lo situé en la esquina superior izquierda. Para que su contenido fuese actualizado, desarrollé un script denominado **cubesCatch**.
+
+Al igual que con las esferas, tambien cree un material y, posteriormente un *prefab* del objeto **Cube**.
+
+Para conseguir que estos fuesen eliminados al presionarlos, primero  desarrollé un pequeño script donde establecí la función *destroyCube*, esta encargandose de suprimir los cubos de la escena y, posteriormente, añadí al *prefab* la propiedad *Event Trigger*. Con la opción *Pointer Click* de esta última, hice que al ser presionado un objeto de este tipo, fuese eliminado. Quedando de la siguiente manera: 
+
+![destroy.jpg](Images/4.jpg)
+
+Por último, en la *Main Camera* añandí la propiedad *Physics Raycaster*.
+
+El resultado final es el siguiente:
+
+![punto2resul.jpg](Images/5.gif)
