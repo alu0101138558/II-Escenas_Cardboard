@@ -34,7 +34,7 @@ Por último, generé las esferas en la escena:
 
 2. Tambien, añadí una función denominada **changeActualColor**, esta se encargaba de comprobar en el objeto **ActualColor** el color que había sido establecido como actual y procedía a cambiarlo en el objeto *Sphere*.
 
-3. Establecí en las esferas la propiedad *Event Trigger* con *Pointer Enter* y le asigné la propia esfera y su función **changeActualColor**.
+3. Establecí en las esferas la propiedad *Event Trigger* con la opción *Pointer Enter* y le asigné la propia esfera y su función **changeActualColor**.
 
 ![apartado1](Images/1.jpg)
 
@@ -44,16 +44,18 @@ El resultado de todo lo anterior es el siguiente:
 
 ### 2. El jugador podrá recolectar cubos.
 
-Lo primero que hice fue crear un texto dentro del *canvas*, éste lo situé en la esquina superior izquierda. Para que su contenido fuese actualizado, desarrollé un script denominado **cubesCatch**.
+Lo primero que hice fue generar un texto dentro del *Canvas*, éste lo situé en la esquina superior izquierda. Para que su contenido fuese actualizado, desarrollé un *Script* denominado **cubesCatch**.
 
-Al igual que con las esferas, cree un material y, posteriormente un *prefab* del objeto **Cube**.
+También establecí un material para que los cubos tuviesen una apariencia anaranjada, y luego generé un *Prefab* del objeto **Cube**.
 
-Para conseguir que estos fuesen eliminados al presionarlos, primero generé un pequeño script donde establecí la función *destroyCube*, esta encargandose de suprimir los cubos de la escena y, posteriormente, añadí al *prefab* la propiedad *Event Trigger*. Con la opción *Pointer Click* de esta última, hice que al ser presionado un objeto de este tipo, fuese eliminado. Quedando de la siguiente manera: 
+Para conseguir que estos fuesen eliminados al observarlos:
 
-![destroy.jpg](Images/4.jpg)
+1. Creé un pequeño *Script* donde establecí la función *destroyCube*, esta encargandose de suprimir los cubos de la escena.
 
-Por último, en la *Main Camera* añandí la propiedad *Physics Raycaster*.
+2. Añadí al *Prefab* la propiedad *Event Trigger* con la opción *Pointer Enter* de esta última. El *Prefab* quedó de la siguiente manera:
+
+![apartado2](Images/2.jpg)
 
 El resultado final es el siguiente:
 
-![punto2resul.jpg](Images/5.gif)
+![apartado2](Images/2.gif)
