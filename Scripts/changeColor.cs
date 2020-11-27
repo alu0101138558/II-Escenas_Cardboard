@@ -5,10 +5,12 @@ using UnityEngine;
 public class changeColor : MonoBehaviour
 {
     public Material colorEsfera;
+    private Renderer esfera;
     // Start is called before the first frame update
     void Start()
     {
-        colorEsfera.color = new Color(1, 1, 1, 1);
+        esfera = GetComponent<Renderer>();
+        esfera.material.color = Color.white;
     }
 
     // Update is called once per frame
@@ -17,22 +19,22 @@ public class changeColor : MonoBehaviour
         
     }
     
-    public void changeActualColor (string color)
+    public void changeActualColor ()
     {
-        if (color == "red")
+        if (ActualColor.knowActualColor() == "red")
         {
-            colorEsfera.color = new Color(1, 0, 0, 1);
-        } else if (color == "blue")
+            esfera.material.color = Color.red;
+        } else if (ActualColor.knowActualColor() == "blue")
         {
-            colorEsfera.color = new Color(0, 0, 1, 1);
-        } else if (color == "green")
+            esfera.material.color = Color.blue;
+        } else if (ActualColor.knowActualColor() == "green")
         {
-            colorEsfera.color = new Color(0, 1, 0, 1);
+            esfera.material.color = Color.green;
         }
     }
 
     private void OnDisable()
     {
-        colorEsfera.color = new Color(1, 1, 1, 1);
+        esfera.material.color = Color.white;
     }
 }

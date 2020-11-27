@@ -2,23 +2,45 @@
 
 ## Crear una aplicación Unity con cubos y esferas. Convertirla en una aplicación VR. 
 
+Antes de comezar a resolver los distintos apartados del ejercicio, establecí la escena de trabajo como *VR* haciendo lo siguiente:
+
+1. Creé un objeto vacío denominado **CameraRig** y le introduje como hija la **Main Camera**, a esta además, le eliminé su propiedad **PhysicsRaycaster** y la sustituí con **GvrPointerPhysicsRaycaster**.
+
+2. A la camara, tambien le añadí como hijo el **GvrReticlePointer** y establecí que, su propiedad *Override Pointer Camera*, estuviese vinculada a la **Main Camera**.
+ 
+3. Creé otro objeto vacío denominado **Gvr**. En él introduje el **GvrEditorEmulator**, el **GvrControllerMain** y el **GvrEventSystem**.
+
+4. Por último, creé un objeto de tipo *Canvas*, primero sustituyendo su propiedad **Graphics Raycaster** por **GvrPointerGraphicRaycaster**, y luego, establecí las propiedades:
+
+* *Render Mode* a *World Space*.
+
+* *Event Camera* a **Main Camera**.
+
 ### 1. El jugador podrá cambiar de color las esferas. Inicialmente las esferas serán blancas y el nuevo color debe eligirlo entre 3 opciones en la UI.
 
-Para resolver este apartado, lo primero que realicé fue la creación de un material de color blanco común para todas las esferas.
+Para resolver este apartado, lo primero que hice fue añadir un *Script* a la *Main Camera* denominado **ActualColor**, este establecía que dependiendo del color seleccionado por un botón, al observar una esfera de la escena, esta cambiaría su color al seleccionado.
 
-![material.jpg](Images/1.jpg)
+Luego en el canvas, procedí a generar los elementos necesarios para la interacción. Estos fueron tres botones, cada uno con la siguiente funcionalidad en *OnClick*: 
 
-Lo siguiente, fue la creación de objeto **Shepere**, asignandole el material anteriormente establecido, y su conversión a *prefab*, permitiendome así reciclarlo para el resto de objetos del mismo tipo. Además, le asigné un pequeño script que permite cambiar el color de estos objetos, denominado **changeColour**.
+* **Botón rojo:** Este se encarga de pasarle a la función *saveColor* del objeto *ActualColor* la cadena de carácteres *red*.
 
-Luego, cree dentro de la cámara un *canvas* para poder responder al apartado de la UI. Dentro de éste, establecí tres botones, cada uno siendo correspondiente a un color primario (rojo, verde y azúl).
+* **Botón azul:** Este se encarga de pasarle a la función *saveColor* del objeto *ActualColor* la cadena de carácteres *blue*.
 
-Por último, para poder conseguir que todas las esferas cambien al mismo color, establecí que en la función *OnClick*, de cada botón, una llamada a **changeColour**, el color al que se modificara dependedería del paramatro que se le pasase al método, quedando de la siguiente manera: 
+* **Botón verde:** Este se encarga de pasarle a la función *saveColor* del objeto *ActualColor* la cadena de carácteres *green*.
 
-![onclick.jpg](Images/2.jpg)
+Por último, generé las esferas en la escena: 
 
-Produciendo en el juego lo siguiente: 
+1. Les asigné un *Script* denominado **changeColor**, este establecía que el color inicial de las esferas sería el blanco.
 
-![punto1resul.jpg](Images/3.gif)
+2. Tambien, añadí una función denominada **changeActualColor**, esta se encargaba de comprobar en el objeto **ActualColor** el color que había sido establecido como actual y procedía a cambiarlo en el objeto *Sphere*.
+
+3. Establecí en las esferas la propiedad *Event Trigger* con *Pointer Enter* y le asigné la propia esfera y su función **changeActualColor**.
+
+![apartado1](Images/1.jpg)
+
+El resultado de todo lo anterior es el siguiente: 
+
+![apartado1](Images/1.gif)
 
 ### 2. El jugador podrá recolectar cubos.
 
